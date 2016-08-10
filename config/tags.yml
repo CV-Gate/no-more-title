@@ -1,0 +1,8 @@
+toys:
+  index:
+    title: Shop | Toys index
+    meta:
+      description: This is the description
+      author: Myself
+  show:
+    title: This is one toy
