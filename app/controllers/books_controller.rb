@@ -4,7 +4,13 @@ class BooksController < ApplicationController
   # GET /books
   # GET /books.json
   def index
-    @books = Book.all
+    limit = 10
+    offset = params[:offset].to_i*limit if params[:offset]
+    @books = Book.order('created_at DESC').offset(offset).limit(limit)
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   # GET /books/1
@@ -15,9 +21,13 @@ class BooksController < ApplicationController
   # GET /books/new
   def new
     @book = Book.new
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
-  # GET /books/1/edit
+  # GET /books/1/edit_book_path
   def edit
   end
 
@@ -29,10 +39,9 @@ class BooksController < ApplicationController
     respond_to do |format|
       if @book.save
         format.html { redirect_to @book, notice: 'Book was successfully created.' }
-        format.json { render :show, status: :created, location: @book }
+        format.js {}
       else
-        format.html { render :new }
-        format.json { render json: @book.errors, status: :unprocessable_entity }
+        format.js {}
       end
     end
   end

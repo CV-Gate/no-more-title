@@ -1,0 +1,4 @@
+var html = "<%= escape_javascript(render partial: 'books/books', locals: { books: @books } ) %>";
+$('.table').append(html);
+var offset = parseInt($('.load-more').attr('href').split("=").pop())+1;
+$('.load-more').attr('href', '/books?offset=' + offset);

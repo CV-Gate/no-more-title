@@ -1,0 +1,8 @@
+<% if @book.errors.any? %>
+  var html = "<%= escape_javascript(render partial: 'books/errors' ) %>";
+  $('#error_explanation').html(html);
+<% else %>
+  var html = "<%= escape_javascript(render partial: 'books/book' ) %>";
+  $('.table').prepend(html);
+  $('.form-container').html('');
+<% end %>

@@ -1,10 +1,12 @@
 <div class="page-header">
-  <%= link_to new_book_path, class: 'btn btn-primary' do %>
+  <%= link_to new_book_path, class: 'btn btn-primary', remote: true do %>
     <span class="glyphicon glyphicon-plus"></span>
     New Book
   <% end %>
   <h1>Listing books</h1>
 </div>
+
+<div class="form-container"></div>
 
 <div class="table-responsive">
   <table class="table table-striped table-bordered table-hover">
@@ -29,3 +31,8 @@
     </tbody>
   </table>
 </div>
+
+<%= link_to 'Load more', books_path(offset: 1), class:'load-more', remote: true %>
+
+<br>
+<br>
