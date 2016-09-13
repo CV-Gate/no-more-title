@@ -8,6 +8,6 @@ Rails example application
 
 1) `bundle install`
 
-2) `rake db:create db:migrate`
+2) `rake db:create db:migrate db:seed`
 
 3) `rails s`
